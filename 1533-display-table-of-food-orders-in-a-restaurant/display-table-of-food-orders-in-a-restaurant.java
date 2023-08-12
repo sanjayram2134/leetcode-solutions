@@ -1,6 +1,6 @@
 class Solution {
     
-   
+   // ithu naa podala makaleyyyy.
         
          public List<List<String>> displayTable(List<List<String>> orders) {
         Map<Integer, Map<String, Integer>> tableInfo = new HashMap<>();

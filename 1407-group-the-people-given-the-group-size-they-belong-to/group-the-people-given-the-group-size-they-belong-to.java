@@ -10,6 +10,7 @@ class Solution {
            if(map.containsKey(size))
            {
                temp = map.get(size);
+               System.out.println(temp);
            }
            temp.add(i);
            map.put(size,temp);

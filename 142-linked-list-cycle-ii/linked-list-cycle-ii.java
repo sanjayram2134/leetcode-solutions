@@ -4,7 +4,7 @@ public class Solution {
             return null;
         }
         
-        // Step 1: Find the intersection point if there's a cycle
+       
         ListNode slow = head;
         ListNode fast = head;
         ListNode intersection = null;
@@ -19,12 +19,12 @@ public class Solution {
             }
         }
         
-        // Step 2: Return null if there's no cycle
+       
         if (intersection == null) {
             return null;
         }
         
-        // Step 3: Find the starting point of the cycle
+        
         ListNode ptr1 = head;
         ListNode ptr2 = intersection;
         

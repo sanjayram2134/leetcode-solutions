@@ -1,30 +1,21 @@
 class Solution {
     public int[] rearrangeArray(int[] nums) {
         int l = nums.length;
+        int posind = 0,negind=1;
         int ans[] = new int[l];
-        int z1[] = new int[l/2];
-        int z2[] = new int[l/2];
-        int i=0,j=0;
-        for(int z:nums)
+        for(int i=0;i<l;i++)
         {
-            if(z>=0)
+            if(nums[i]>0)
             {
-               z1[i] = z;
-               i++;
-            }else
+                ans[posind] = nums[i];
+                posind+=2;
+            }
+            else
             {
-                z2[j] = z;
-                j++;
-
+                ans[negind] = nums[i];
+                negind+=2;
             }
         }
-        int k =0;
-        for(int in=0;in<l;in+=2){
-               ans[in] = z1[k];
-               ans[in+1] = z2[k];
-               k++;
-        }
         return ans;
-
     }
 }

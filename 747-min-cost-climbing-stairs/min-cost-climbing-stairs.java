@@ -11,3 +11,4 @@ class Solution {
         return Math.min(dp[n],dp[n-1]);
     }
 }
+//using DP 

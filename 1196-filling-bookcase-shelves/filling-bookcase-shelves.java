@@ -1,33 +1,24 @@
 public class Solution {
-      public int minHeightShelves(int[][] books, int shelfWidth) {
-        Integer[][] memo = new Integer[books.length][shelfWidth + 1];
-        return minHeight(books, shelfWidth, 0, 0, 0, memo);
+        public int minHeightShelves(int[][] books, int shelfWidth) {
+        int n = books.length;
+        int[] dp = new int[n + 1];
+        dp[0] = 0;
+
+        for (int i = 1; i <= n; i++) {
+            int currentWidth = 0;
+            int currentHeight = 0;
+            dp[i] = Integer.MAX_VALUE;
+            for (int j = i; j > 0; j--) {
+                currentWidth += books[j - 1][0];
+                if (currentWidth > shelfWidth) {
+                    break;
+                }
+                currentHeight = Math.max(currentHeight, books[j - 1][1]);
+                dp[i] = Math.min(dp[i], dp[j - 1] + currentHeight);
+            }
+        }
+
+        return dp[n];
     }
-
-    private int minHeight(int[][] books, int shelfWidth, int index, int currentWidth, int currentHeight, Integer[][] memo) {
-        if (index == books.length) {
-            return currentHeight;
-        }
-
-        if (memo[index][currentWidth] != null) {
-            return memo[index][currentWidth];
-        }
-
-        int thickness = books[index][0];
-        int height = books[index][1];
-
-        // Option 1: Place book on the current shelf if it fits
-        int heightWithCurrentShelf = Integer.MAX_VALUE;
-        if (currentWidth + thickness <= shelfWidth) {
-            heightWithCurrentShelf = minHeight(books, shelfWidth, index + 1, currentWidth + thickness, Math.max(currentHeight, height), memo);
-        }
-
-        // Option 2: Place book on the next shelf
-        int heightWithNextShelf = currentHeight + minHeight(books, shelfWidth, index + 1, thickness, height, memo);
-
-        memo[index][currentWidth] = Math.min(heightWithCurrentShelf, heightWithNextShelf);
-        return memo[index][currentWidth];
-    }
-
    
 }

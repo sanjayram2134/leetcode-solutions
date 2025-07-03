@@ -10,11 +10,11 @@ class Solution {
         }
         for(int i = 0 ; i<matrix.length; i++){
             int start = 0;
-            int end = matrix[i].length -1;
+            int end = matrix.length -1;
             while(start < end){
                 // matrix[i][start] = matrix[i][start] + matrix[i][end];
                 // matrix[i][end] = matrix[i][start] - matrix[i][end];
-                // matrix[i][start] = matrix[i][start] - matrix[i][end];
+                // matrix[i][start] = matrix[i][start] - matrix[i][end]; // swap without third variable
                 int temp = matrix[i][start];
                 matrix[i][start] = matrix[i][end];
                 matrix[i][end] = temp;

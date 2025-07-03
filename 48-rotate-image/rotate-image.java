@@ -12,9 +12,12 @@ class Solution {
             int start = 0;
             int end = matrix[i].length -1;
             while(start < end){
-                matrix[i][start] = matrix[i][start] + matrix[i][end];
-                matrix[i][end] = matrix[i][start] - matrix[i][end];
-                matrix[i][start] = matrix[i][start] - matrix[i][end];
+                // matrix[i][start] = matrix[i][start] + matrix[i][end];
+                // matrix[i][end] = matrix[i][start] - matrix[i][end];
+                // matrix[i][start] = matrix[i][start] - matrix[i][end];
+                int temp = matrix[i][start];
+                matrix[i][start] = matrix[i][end];
+                matrix[i][end] = temp;
                 start++;
                 end--;
 
